@@ -9,25 +9,46 @@ const ArtistSongs = () => {
         {name: 'We Are Not Your Kind', year: 2019, img: "https://upload.wikimedia.org/wikipedia/en/1/18/Slipknot_-_We_Are_Not_Your_Kind.png"}
     ])
 
-    const renderRows = () => {
+    // const renderRows = () => {
         // eslint-disable-next-line jsx-a11y/alt-text
-        return songs.map(p => <tr><td>{p.name}</td><td>{p.year}</td><td><img src={p.img} /></td></tr>)
-      }
+    //     return songs.map(p => <tr><td>{p.name}</td><td>{p.year}</td><td><img src={p.img} /></td></tr>)
+    //   }
     
-      return (
-        <table style={{ border: "1px solid black", width: "100vw", textAlign: "center" }}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Year</th>
-              <th>Image</th>
-            </tr>
-          </thead>
-          <tbody>
-            { renderRows() }
-          </tbody>
-        </table>
+    //   return (
+    //     <table style={{ border: "1px solid black", width: "100vw", textAlign: "center" }}>
+    //       <thead>
+    //         <tr>
+    //           <th>Name</th>
+    //           <th>Year</th>
+    //           <th>Image</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         { renderRows() }
+    //       </tbody>
+    //     </table>
+    //   );
+    // };
+
+    const changeAlbumNameOnLike = (e) => {
+      e.target.parentNode.children[0].children[0].classList.toggle(
+        "increase-header"
       );
+      console.log(e.target.parentNode.children[0].children[0]);
     };
+  
+    const renderRows = () => {
+      return songs.map((each, i) => (
+        <ul className="list">
+          <li key={i}>
+            <p role="article">{each.name}</p>
+            <img src={each.img} alt={each.alt} style={{ maxWidth: "200px" }} />
+          </li>
+          <button onClick={changeAlbumNameOnLike}>Like</button>
+        </ul>
+      ));
+    };
+    return <>{renderRows()}</>;
+  };
     
     export default ArtistSongs;
