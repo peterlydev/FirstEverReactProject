@@ -36,17 +36,11 @@ code {
   color: #f1356d;
 }
 
-h1, content{
+h1, p, ul{
   text-align: center;
 }
 
 ul{
-  display: flex;
-  align-items: center;
+  list-style-type: none;
 }
 
-article{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
